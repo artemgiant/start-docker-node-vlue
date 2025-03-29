@@ -5,6 +5,10 @@ app.get('/', (req, res) => {
   res.send('Hello from Backend!');
 });
 
+app.get('/hello', (req, res) => {
+  res.send('Hello from Backend API!');
+});
+
 app.listen(4000, () => {
   console.log('Backend server is running on port 4000');
 });

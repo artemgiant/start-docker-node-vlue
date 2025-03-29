@@ -7,10 +7,18 @@ services:
       - "8080:8080"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/dist:/usr/share/nginx/html
     depends_on:
       - backend
+      - frontend
 
   backend:
     build: ./backend
     ports:
       - "4000:4000"
+
+  frontend:
+    build: ./frontend
+    command: sh -c "npm install && npm run build"
+    volumes:
+      - ./frontend/dist:/app/dist
