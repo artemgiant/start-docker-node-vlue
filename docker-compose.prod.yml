@@ -21,4 +21,4 @@ services:
     build: ./frontend
     command: sh -c "npm install && npm run build"
     volumes:
-      - ./frontend/dist:/app/dist
+      - ./frontend:/app

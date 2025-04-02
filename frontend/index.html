@@ -1,63 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Vue CRUD + API</title>
+    <meta charset="UTF-8" />
+    <title>Vite + Vue 3 App</title>
 </head>
 <body>
-<div id="app">
-    <h1>Simple CRUD</h1>
-    <input v-model="newItem" @keyup.enter="addItem" placeholder="Add item">
-    <ul>
-        <li v-for="(item, index) in items" :key="index">
-            {{ item }}
-            <button @click="removeItem(index)">❌</button>
-        </li>
-    </ul>
 
-    <hr>
-    <h2>API Response:</h2>
-    <p>{{ apiMessage }}</p>
-</div>
+<h1>sdfsasdasddf</h1>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
-    const { createApp, ref, onMounted } = Vue;
-
-    createApp({
-        setup() {
-            const items = ref([]);
-            const newItem = ref('');
-            const apiMessage = ref('');
-
-            function addItem() {
-                if (newItem.value.trim()) {
-                    items.value.push(newItem.value.trim());
-                    newItem.value = '';
-                }
-            }
-
-            function removeItem(index) {
-                items.value.splice(index, 1);
-            }
-
-            async function fetchAPI() {
-                try {
-                    const res = await fetch('/api/hello');
-                    const data = await res.text();
-                    apiMessage.value = data;
-                } catch (err) {
-                    apiMessage.value = 'API request failed';
-                }
-            }
-
-            onMounted(() => {
-                fetchAPI();
-            });
-
-            return { items, newItem, addItem, removeItem, apiMessage };
-        }
-    }).mount('#app');
-</script>
+<div id="app"></div>
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>
