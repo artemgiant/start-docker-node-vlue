@@ -1,8 +1,10 @@
 const express = require('express');
-const app = express();
-
+require('dotenv').config();
 const apiRoutes = require('./routes/apiRoutes');
+
+const app = express();
 app.use('/api', apiRoutes); // Префікс тільки для цієї групи
+
 
 
 app.get('/', (req, res) => {

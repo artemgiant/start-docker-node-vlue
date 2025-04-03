@@ -23,6 +23,8 @@ ps-dev:
 clean-dev:
 	docker-compose -f docker-compose.dev.yml down -v --rmi all --remove-orphans
 
+db-connect-dev:
+	docker-compose -f docker-compose.dev.yml exec db psql -U admin -d nginxproxy_db
 
 # ==== PROD =====
 

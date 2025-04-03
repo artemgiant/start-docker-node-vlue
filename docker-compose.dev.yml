@@ -11,6 +11,13 @@ services:
     command: npm run dev
     environment:
       - NODE_ENV=development
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=admin
+      - DB_PASSWORD=admin123
+      - DB_NAME=nginxproxy_db
+    depends_on:
+      - db
 
   frontend:
     build:
@@ -23,3 +30,18 @@ services:
     command: npm run dev
     environment:
       - NODE_ENV=development
+
+
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: nginxproxy_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
