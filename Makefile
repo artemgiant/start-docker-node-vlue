@@ -5,7 +5,9 @@ PROJECT_NAME = nginx-proxy
 # ==== DEV =====
 
 up-dev:
+	@echo "🚀 Запускаю DEV середовище (frontend + backend + postgres)..."
 	docker-compose -f docker-compose.dev.yml up -d --build
+	@echo "✅ Все піднято! Frontend: http://localhost:5173 | Backend: http://localhost:4000 | DB: http://localhost:5432"
 
 down-dev:
 	docker-compose -f docker-compose.dev.yml down  --remove-orphans
@@ -29,7 +31,9 @@ db-connect-dev:
 # ==== PROD =====
 
 up-prod:
+	@echo "🚀 Запускаю PROD середовище (frontend + backend + postgres)..."
 	docker-compose -f docker-compose.prod.yml up -d --build
+	@echo "✅ Все піднято! Frontend: http://localhost:8080 | Backend: http://localhost:4000 "
 
 down-prod:
 	docker-compose -f docker-compose.prod.yml down
